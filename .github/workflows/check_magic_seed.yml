@@ -1,0 +1,17 @@
+name: Check Magic Seed
+
+on:
+    - push
+    - pull_request
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+    container:
+      image: rstudio/r-base:3.6-bionic
+      
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: R --no-save < check_magic_seed.R
