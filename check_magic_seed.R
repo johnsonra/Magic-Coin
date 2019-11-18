@@ -5,5 +5,5 @@
 
 source('find_magic_seed.R')
 
-if(!is_magic_seed(s))
+if(!is_magic_coin(s))
     stop('Sorry, no magic - try again.')
