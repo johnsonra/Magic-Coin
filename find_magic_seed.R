@@ -22,7 +22,7 @@ is_magic_coin <- function(rseed)
 # find a random seed such that is_magic_coin() returns TRUE
 for(s in 1:1e6)
 {
-    if(is.magic.coin(s))
+    if(is_magic_coin(s))
     {
         print("Found a magic coin!")
         break
