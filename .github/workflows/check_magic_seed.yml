@@ -13,10 +13,12 @@ jobs:
       
     steps:
     - uses: actions/checkout@v1
-      run: export HOF=False
 
     - name: Run a one-line script
-      run: R --no-save < check_magic_seed.R
+      run: |
+        export HOF=False
+        R --no-save < check_magic_seed.R
+        
 
     - name: Commit seed to Hall of Fame
       if: $HOF
