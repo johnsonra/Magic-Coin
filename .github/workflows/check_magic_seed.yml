@@ -16,12 +16,10 @@ jobs:
 
     - name: Run a one-line script
       run: |
-        export HOF=False
         R --no-save < check_magic_seed.R
         
 
     - name: Commit seed to Hall of Fame
-      if: $HOF
       run: |
         echo ${{ github.ref }}
         git add .
@@ -30,7 +28,6 @@ jobs:
         git commit -m "ci: Hall of Fame update" -a | exit 0
         
     - name: Push
-      if: $HOF
       uses: ad-m/github-push-action@master
       with: 
         github_token: ${{ secrets.GITHUB_TOKEN }}
