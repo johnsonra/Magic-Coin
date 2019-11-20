@@ -13,5 +13,21 @@ jobs:
       
     steps:
     - uses: actions/checkout@v1
+
     - name: Run a one-line script
-      run: R --no-save < check_magic_seed.R
+      run: |
+        R --no-save < check_magic_seed.R
+        
+
+    - name: Commit seed to Hall of Fame
+      run: |
+        echo ${{ github.ref }}
+        git add .
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "ci: Hall of Fame update" -a | exit 0
+        
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with: 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
