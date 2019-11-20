@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v1
     
     - name: System dependencies
-      run: apt-get install git-core
+      run: apt-get install git
 
     - name: Run a one-line script
       run: |
