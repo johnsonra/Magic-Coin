@@ -8,7 +8,7 @@ source('is_magic_coin.R')
 #######################
 
 # find a random seed such that is_magic_coin() returns TRUE
-s <- 392487
+s <- 72
 
 # Check your seed, s
 is_magic_coin(s)

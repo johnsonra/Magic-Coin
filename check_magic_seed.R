@@ -37,7 +37,4 @@ if(!s %in% HoF) # if s is unique to previously reported seeds, add to the hall o
     
     paste0("echo '|", ghID, "|", s, "|' >> README.md") %>%
         system()
-    
-    # set flag to push README update
-    system('export HOF="True"')
 }
