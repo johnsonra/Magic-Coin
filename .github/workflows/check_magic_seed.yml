@@ -16,7 +16,7 @@ jobs:
     
     - name: System dependencies
       run: |
-        apt-get --yes --force-yes update
+        apt-get --allow update
         apt-get install git
 
     - name: Run a one-line script
