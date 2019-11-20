@@ -8,7 +8,7 @@ source('is_magic_coin.R')
 #######################
 
 # find a random seed such that is_magic_coin() returns TRUE
-for(s in 1:1e6)
+for(s in 73:1e6)
 {
     if(is_magic_coin(s))
     {
