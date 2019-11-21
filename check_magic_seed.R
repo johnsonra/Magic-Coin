@@ -27,7 +27,5 @@ HoF <- as.numeric(HoF)                           # convert to numeric
 if(!s %in% HoF) # if s is unique to previously reported seeds, add to the hall of fame
 {
     # append new seed to README
-    ghID <- system("${{github.actor}}", intern = TRUE)
-    
-    system(paste0("echo '|", ghID, "|", s, "|' >> README.md"))
+    system(paste0("echo '|${{github.actor}}|", s, "|' >> README.md"))
 }
