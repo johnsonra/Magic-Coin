@@ -16,7 +16,7 @@ jobs:
     
     - name: System dependencies
       run: |
-        apt-get --assume-yes --allow-change-held-packages update
+        apt-get --yes update
         apt-get install git
 
     - name: Run a one-line script
