@@ -3,13 +3,7 @@
 
 # ** don't edit this file ** #
 
-## load libraries and functions we need
-if(!require(magrittr))
-{
-    install.packages('magrittr', lib = '~/lib', repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')
-    library(magrittr, lib.loc = '~/lib')
-}
-
+## load functions we need
 source('is_magic_coin.R')
 
 
@@ -24,17 +18,16 @@ if(!is_magic_coin(s))
 
 ## check if the s is unique or if it has already in the hall of fame
 
-HoF <- readLines('README.md') %>%               # pull all lines from README
-       grep(pattern = '^\\|', value = TRUE) %>% # get rows of table at the end (they start with '|') %>%
-       strsplit('\\|') %>%                      # split columns on '|'
-       sapply(`[`, 3) %>%                       # third value is seed
-       as.numeric()
+HoF <- readLines('README.md')                    # pull all lines from README
+HoF <- grep(HoF, pattern = '^\\|', value = TRUE) # get rows of table at the end (they start with '|') %>%
+HoF <- strsplit(HoF, '\\|')                      # split columns on '|'
+HoF <- sapply(HoF, `[`, 3)                       # third value is seed
+HoF <- as.numeric(HoF)                           # convert to numeric
     
 if(!s %in% HoF) # if s is unique to previously reported seeds, add to the hall of fame
 {
     # append new seed to README
     ghID <- system("${{github.actor}}", intern = TRUE)
     
-    paste0("echo '|", ghID, "|", s, "|' >> README.md") %>%
-        system()
+    system(paste0("echo '|", ghID, "|", s, "|' >> README.md"))
 }
