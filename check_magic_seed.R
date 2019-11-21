@@ -6,8 +6,8 @@
 ## load libraries and functions we need
 if(!require(magrittr))
 {
-    install.packages('magrittr', repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')
-    library(magrittr)
+    install.packages('magrittr', lib = '~/lib', repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')
+    library(magrittr, lib.loc = '~/lib')
 }
 
 source('is_magic_coin.R')
