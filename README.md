@@ -38,4 +38,3 @@ These users have identified the following random seeds that result in 10 heads i
 | User name | Seed |
 | --------- | ---- |
 |johnsonra|72|
-||145|
