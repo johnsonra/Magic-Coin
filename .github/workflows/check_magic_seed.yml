@@ -7,17 +7,13 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-18.04
-    container:
-      image: rstudio/r-base:3.6-bionic
-      
+    runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v1
     
     - name: System dependencies
-      run: |
-        sudo apt-get --yes update
-        sudo apt-get install git
+      run: sudo apt-get install r-base
 
     - name: Run a one-line script
       run: |
